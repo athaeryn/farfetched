@@ -2,9 +2,11 @@
   "name": "farfetched",
   "version": "1.0.0",
   "description": "Response mocking for window.fetch",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --compilers js:6to5/register",
+    "prepublish": "6to5 -d dist lib",
+    "postinstall": "6to5 -d dist lib"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/athaeryn/farfetched/issues"
   },
-  "homepage": "https://github.com/athaeryn/farfetched"
+  "homepage": "https://github.com/athaeryn/farfetched",
+  "devDependencies": {
+    "6to5": "^3.1.0",
+    "mocha": "^2.1.0"
+  }
 }
