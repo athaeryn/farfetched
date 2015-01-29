@@ -1,0 +1,24 @@
+{
+  "name": "farfetched",
+  "version": "1.0.0",
+  "description": "Response mocking for window.fetch",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/athaeryn/farfetched.git"
+  },
+  "keywords": [
+    "fetch",
+    "mock",
+    "ajax"
+  ],
+  "author": "Mike Anderson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/athaeryn/farfetched/issues"
+  },
+  "homepage": "https://github.com/athaeryn/farfetched"
+}
