@@ -1,12 +1,12 @@
 {
   "name": "farfetched",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Response mocking for window.fetch",
   "main": "./dist/index.js",
   "scripts": {
     "test": "mocha --compilers js:6to5/register",
-    "prepublish": "6to5 -d dist lib",
-    "postinstall": "6to5 -d dist lib"
+    "prepublish": "./node_modules/.bin/6to5 -d dist lib",
+    "postinstall": "./node_modules/.bin/6to5 -d dist lib"
   },
   "repository": {
     "type": "git",
