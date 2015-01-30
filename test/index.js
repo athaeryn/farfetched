@@ -32,6 +32,26 @@ describe("farfetched", function() {
   });
 
 
+  it("should allow fetches to be mocked more than once", function(done) {
+    var a, b;
+    farfetched("/repeat", { response: "foo" });
+    window.fetch("/repeat")
+      .then(text)
+      .then(function(text) { a = text; })
+      .then(function() {
+        return window.fetch("/repeat");
+      })
+      .then(text)
+      .then(function(text) { b = text; })
+      .then(function() {
+        console.log(a, b);
+        assert(a === b);
+        done();
+      })
+      .catch(done);
+  });
+
+
   describe("JSON", function() {
     it("should have a .json method on the response", function(done) {
       farfetched("/json", {

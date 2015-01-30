@@ -1,5 +1,9 @@
 # farfetched changelog
 
+### 1.1.2 (January 30, 2015)
+
+- Fix bug where the second request to a URL threw an error
+
 ### 1.1.1 (January 30, 2015)
 
 - Fix `postinstall` script
