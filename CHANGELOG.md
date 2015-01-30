@@ -1,5 +1,9 @@
 # farfetched changelog
 
+### 1.1.3 (January 30, 2015)
+
+- Fix bug with installation
+
 ### 1.1.2 (January 30, 2015)
 
 - Fix bug where the second request to a URL threw an error
