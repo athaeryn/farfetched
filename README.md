@@ -27,19 +27,17 @@ farfetched.attach(window);
 
 ## API
 
-### farfetched(options)
+### farfetched(url, options)
 
 Creates a handler and returns its ID.
 
-Options:
+`url` is the URL to match and mock.
 
-- `url`
-
-    The URL to match and mock.
+`options` is an object and can have the following properties:
 
 - `response`
 
-    The response object to return, or a function that returns it.
+    The response object to return.
 
 
 ### farfetched.clear(id)
