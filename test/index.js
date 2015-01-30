@@ -7,10 +7,12 @@ describe("farfetched", function() {
   var self,
       handlerID;
 
+  // Fake the DOM.
   jsdom();
 
   before(function() {
     self = window;
+    // Stub out window.fetch.
     window.fetch = function(url) {
       return Promise.resolve("window.fetch");
     }
@@ -21,9 +23,27 @@ describe("farfetched", function() {
 
   it("should create handlers", function(done) {
     handlerID = farfetched("/foo", { response: "foo" });
-    window.fetch("/foo").then(function(response) {
-      assert(response === "foo");
-      done();
+    window.fetch("/foo")
+      .then(text)
+      .then(function(response) {
+        assert(response === "foo");
+        done();
+      });
+  });
+
+
+  describe("JSON", function() {
+    it("should have a .json method on the response", function(done) {
+      farfetched("/json", {
+        response: { foo: "foo"}
+      });
+
+      window.fetch("/json")
+        .then(json)
+        .then(function(json) {
+          assert(json.foo === "foo");
+          done();
+        });
     });
   });
 
@@ -51,6 +71,17 @@ describe("farfetched", function() {
     });
   });
 });
+
+
+function text(response) {
+  return response.text();
+}
+
+
+function json(response) {
+  return response.json();
+}
+
 
 function ensureNoIntercept(response, done) {
   var err;
