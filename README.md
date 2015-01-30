@@ -31,13 +31,20 @@ farfetched.attach(window);
 
 Creates a handler and returns its ID.
 
-`url` is the URL to match and mock.
+`url` is the URL (either a String or Regexp) to match and mock.
 
 `options` is an object and can have the following properties:
 
 - `response`
 
-    The response object to return.
+    The response to return or a function that can be called to obtain it.
+
+
+### farfetched.attach(window)
+
+Attaches farfetched to the global scope, replacing `window.fetch`.
+`window.fetch` is still used when farfetched can't find a handler that matches
+a route.
 
 
 ### farfetched.clear(id)

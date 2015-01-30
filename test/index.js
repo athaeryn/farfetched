@@ -15,7 +15,7 @@ describe("farfetched", function() {
     // Stub out window.fetch.
     window.fetch = function(url) {
       return Promise.resolve("window.fetch");
-    }
+    };
     farfetched.attach(window);
   });
 
@@ -47,6 +47,19 @@ describe("farfetched", function() {
       })
       .catch(done);
   });
+
+
+  it("should allow regex URLs", function(done) {
+    farfetched(/regex/, { response: "regex!" });
+    window.fetch("/a-regex-filled-url")
+      .then(text)
+      .then(function(response) {
+        assert(response === "regex!");
+        done();
+      })
+      .catch(done);
+  });
+
 
   it("should allow fetches to be mocked more than once", function(done) {
     var a, b;

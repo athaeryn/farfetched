@@ -1,5 +1,10 @@
 # farfetched changelog
 
+### 1.1.4 (January 30, 2015)
+
+- Allow `url` to be a Regexp
+- Allow dynamic (function) handlers
+
 ### 1.1.3 (January 30, 2015)
 
 - Fix bug with installation
