@@ -76,6 +76,22 @@ describe("farfetched", function() {
   });
 
 
+  it("should not cache results of hander functions", function(done) {
+    var requestURL = "/requestURL?foo=true";
+    farfetched(/requestURL/, {
+      response: function(url) { return url; }
+    });
+    window.fetch(requestURL).catch(done);
+    window.fetch("/requestURL?foo=false")
+      .then(text)
+      .then(function(response) {
+        assert(response.indexOf("false") > -1);
+        done();
+      })
+      .catch(done);
+  });
+
+
   it("should allow fetches to be mocked more than once", function(done) {
     var a, b;
     farfetched("/repeat", { response: "foo" });
