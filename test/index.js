@@ -61,6 +61,21 @@ describe("farfetched", function() {
   });
 
 
+  it("should pass the requested URL to a handler function", function(done) {
+    var requestURL = "/requestURL?foo=true";
+    farfetched(/requestURL/, {
+      response: function(url) { return url; }
+    });
+    window.fetch(requestURL)
+      .then(text)
+      .then(function(response) {
+        assert(response === requestURL);
+        done();
+      })
+      .catch(done);
+  });
+
+
   it("should allow fetches to be mocked more than once", function(done) {
     var a, b;
     farfetched("/repeat", { response: "foo" });
