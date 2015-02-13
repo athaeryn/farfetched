@@ -1,6 +1,6 @@
 # farfetched changelog
 
-### 1.1.6 (February 13, 2015)
+### 1.1.7 (February 13, 2015)
 
 - Fix handler responses being cached
 
