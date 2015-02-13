@@ -1,5 +1,13 @@
 # farfetched changelog
 
+### 1.1.6 (February 13, 2015)
+
+- Fix handler responses being cached
+
+### 1.1.5 (February 13, 2015)
+
+- Fix wrong URL being passed to handlers
+
 ### 1.1.4 (January 30, 2015)
 
 - Allow `url` to be a Regexp
