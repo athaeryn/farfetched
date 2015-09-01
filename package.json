@@ -4,9 +4,9 @@
   "description": "Response mocking for window.fetch",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "mocha --compilers js:6to5/register",
-    "prepublish": "./node_modules/.bin/6to5 -d dist lib",
-    "postinstall": "./node_modules/.bin/6to5 -d dist lib"
+    "test": "mocha --compilers js:babel/register",
+    "prepublish": "babel -d dist lib",
+    "postinstall": "babel -d dist lib"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/athaeryn/farfetched",
   "dependencies": {
-    "6to5": "3.1.0"
+    "babel": "^5.8.23"
   },
   "devDependencies": {
     "jsdom": "^3.1.0",
