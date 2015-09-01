@@ -1,5 +1,9 @@
 # farfetched changelog
 
+### 1.1.8 (February 13, 2015)
+
+- Fix regex handlers with /g/ flag
+
 ### 1.1.7 (February 13, 2015)
 
 - Fix handler responses being cached
