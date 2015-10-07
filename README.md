@@ -7,6 +7,9 @@ I recommend using GitHub's [fetch polyfill](https://github.com/github/fetch).
 I'm going to start simple and add methods and features as I need them or
 they're requested.
 
+[![Build Status](https://img.shields.io/travis/athaeryn/farfetched.svg?style=flat-square)](https://travis-ci.org/athaeryn/farfetched)
+[![npm](https://img.shields.io/npm/v/farfetched.svg?style=flat-square)](https://www.npmjs.com/package/farfetched)
+
 
 ## Installation
 
