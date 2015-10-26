@@ -1,6 +1,6 @@
 {
   "name": "farfetched",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "Response mocking for window.fetch",
   "main": "./dist/index.js",
   "scripts": {
