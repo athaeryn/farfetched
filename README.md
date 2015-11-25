@@ -67,7 +67,7 @@ Creates a handler and returns its ID.
 
 `url` is the URL (either a String or Regexp) to match and mock.
 
-`options` is an object and can have the following properties:
+`options` is an Object and can have the following properties:
 
 - `response`
 

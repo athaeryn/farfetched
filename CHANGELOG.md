@@ -1,5 +1,9 @@
 # farfetched changelog
 
+### 1.2.0 (November 25, 2015)
+
+- Add `farfetched.detach` to restore `window.fetch`
+
 ### 1.1.8 (February 13, 2015)
 
 - Fix regex handlers with /g/ flag
