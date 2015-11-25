@@ -11,7 +11,7 @@ describe('farfetched', function () {
 
   before(function () {
     // Stub out window.fetch.
-    window.fetch = function (url) {
+    window.fetch = function fetch(url) {
       return Promise.resolve('window.fetch')
     }
     farfetched.attach(window)
@@ -124,6 +124,13 @@ describe('farfetched', function () {
   describe('.attach', function () {
     it('should replace window.fetch', function () {
       assert(window.fetch.name === 'handleRequest')
+    })
+  })
+
+  describe(".detach", function() {
+    it("should detach farfetched from window.fetch and restore the original function", function() {
+      farfetched.detach(window)
+      assert(window.fetch.name === "fetch")
     })
   })
 

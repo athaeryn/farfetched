@@ -49,6 +49,9 @@ Attaches farfetched to the global scope, replacing `window.fetch`.
 `window.fetch` is still used when farfetched can't find a handler that matches
 a route.
 
+### farfetched.detach(window)
+
+Detaches farfetched from window.fetch and restores the original fetch.
 
 ### farfetched.clear(id)
 
