@@ -28,9 +28,40 @@ farfetched.attach(window);
 ```
 
 
+## Example
+
+```js
+// Call this once to enable farfetched.
+farfetched.attach(window)
+
+//
+// A basic mocked response
+//
+farfetched('/the-answer', { response: '42' })
+
+fetch('/the-answer')
+  .then(log) // '42'
+
+
+//
+// Dynamic responses
+//
+farfetched(/\/food/, { response: url => url.split('?')[1] })
+
+fetch('/food?apples')
+  .then(log) // 'apples'
+
+
+// Helper logging function.
+function log (response) {
+  response.text().then(res => console.log(res))
+}
+```
+
+
 ## API
 
-### farfetched(url, options)
+### `farfetched(url, options)`
 
 Creates a handler and returns its ID.
 
@@ -43,16 +74,16 @@ Creates a handler and returns its ID.
     The response to return or a function that can be called to obtain it.
 
 
-### farfetched.attach(window)
+### `farfetched.attach(window)`
 
 Attaches farfetched to the global scope, replacing `window.fetch`.
 `window.fetch` is still used when farfetched can't find a handler that matches
 a route.
 
-### farfetched.detach(window)
+### `farfetched.detach(window)`
 
-Detaches farfetched from window.fetch and restores the original fetch.
+Detaches farfetched from the global scope and restores the original function.
 
-### farfetched.clear(id)
+### `farfetched.clear(id)`
 
 Clears the handler with the given ID.
