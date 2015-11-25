@@ -140,9 +140,9 @@ describe("farfetched", function() {
   });
 
 
-  describe(".restore", function() {
-    it("should restore window.fetch", function() {
-      farfetched.restore(window);
+  describe(".detach", function() {
+    it("should detach farfetched from window.fetch and restore the original function", function() {
+      farfetched.detach(window);
       assert(window.fetch.name === "fetch");
     });
   });
