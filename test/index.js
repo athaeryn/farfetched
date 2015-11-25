@@ -13,7 +13,7 @@ describe("farfetched", function() {
   before(function() {
     self = window;
     // Stub out window.fetch.
-    window.fetch = function(url) {
+    window.fetch = function fetch(url) {
       return Promise.resolve("window.fetch");
     };
     farfetched.attach(window);
@@ -136,6 +136,14 @@ describe("farfetched", function() {
   describe(".attach", function() {
     it("should replace window.fetch", function() {
       assert(window.fetch.name === "handleRequest");
+    });
+  });
+
+
+  describe(".restore", function() {
+    it("should restore window.fetch", function() {
+      farfetched.restore(window);
+      assert(window.fetch.name === "fetch");
     });
   });
 
