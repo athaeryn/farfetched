@@ -87,3 +87,27 @@ Detaches farfetched from the global scope and restores the original function.
 ### `farfetched.clear(id)`
 
 Clears the handler with the given ID.
+
+## Streamlining the process for one request
+
+If you want to mock only one request and have a quick way to clean it up right before finishing your test as well as restoring fetch, you can use [ffetched](https://github.com/UXtemple/ffetched), e.g..:
+
+```js
+import mockFetch from 'ffetched';
+import test from 'tape';
+
+test('#fetch', t => {
+  const unmockFetch = mockFetch('/some-uri', {
+    data: 'back'
+  });
+
+  fetch('/some-uri').then(data => {
+    t.deepEquals(data, {
+      data: 'back'
+    });
+
+    unmockFetch();
+    t.end();
+  });
+});
+```
